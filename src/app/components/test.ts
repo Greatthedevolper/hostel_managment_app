@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NzButtonComponent } from 'ng-zorro-antd/button';
 
 @Component({
-  selector: 'app-analog-welcome',
+  selector: 'test-welcome',
+  standalone: true,
+  imports: [CommonModule, NzButtonComponent],
   styles: [
     `
       :host {
@@ -104,8 +108,11 @@ import { Component } from '@angular/core';
           font-size: 1.25rem;
         }
       }
-      .btn-container > * + * {
-        margin-left: 1rem;
+      .btn-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       .darkBtn {
         transition-property: color, background-color, border-color,
@@ -202,7 +209,8 @@ import { Component } from '@angular/core';
       }
       .count {
         margin-left: 0.25rem;
-        font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+          monospace;
       }
     `,
   ],
@@ -215,48 +223,52 @@ import { Component } from '@angular/core';
             src="https://analogjs.org/img/logos/analog-logo.svg"
             alt="AnalogJs logo. Two red triangles and a white analog wave in front"
           />
-          <a
-            class="intro-badge"
-            target="_blank"
-            href="https://twitter.com/analogjs"
-            >Follow along on Twitter</a
-          >
           <h1 class="intro-heading">
-            <span class="intro-analog">Analog.</span> The fullstack Angular
-            meta-framework
+            <span class="intro-analog">Analog.</span> testing
           </h1>
           <p class="intro-description">
             Analog is for building applications and websites with Angular.
             <br />Powered by Vite.
           </p>
+
+          <!-- NG-ZORRO Buttons -->
           <div class="btn-container">
-            <a class="darkBtn" href="https://analogjs.org">Read the docs</a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              class="lightBtn"
-              href="https://github.com/analogjs/analog"
-              >Star on GitHub</a
-            >
+            <button nz-button nzType="primary" (click)="increment()">
+              Primary Button - Count: {{ count }}
+            </button>
+            <button nz-button nzType="default" (click)="increment()">
+              Default Button
+            </button>
+            <button nz-button nzType="dashed" (click)="increment()">
+              Dashed Button
+            </button>
           </div>
         </div>
       </section>
-    <section id="counter-demo" class="section">
+
+      <section id="counter-demo" class="counter-section">
         <div class="counter-container">
           <h2 class="counter-heading">Counter</h2>
-          <p class="counter-description">
-            This is a simple interactive counter. Powered by Angular.
-          </p>
-          <button (click)="increment()" class="lightBtn">
-            Count: <span class="count">{{ count }}</span>
-          </button>
+          <p class="counter-description">NG-ZORRO is working!</p>
+
+          <!-- Your existing button + NG-ZORRO button -->
+          <div class="btn-container">
+            <button (click)="increment()" class="lightBtn">
+              Custom Button: <span class="count">{{ count }}</span>
+            </button>
+
+            <button nz-button nzType="primary" nzSize="large" (click)="increment()">
+              NG-ZORRO Button: <span class="count">{{ count }}</span>
+            </button>
+          </div>
         </div>
       </section>
     </main>
   `,
 })
-export class AnalogWelcome {
+export class TestWelcomeComponent {
   count = 0;
+
   increment() {
     this.count++;
   }

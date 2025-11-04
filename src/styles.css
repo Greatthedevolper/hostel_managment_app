@@ -1,8 +1,22 @@
-@import 'tailwindcss';
 
-/* You can add global styles to this file, and also import other style files */
+@import "ng-zorro-antd/ng-zorro-antd.min.css";
+@import "tailwindcss";
+
+/* Your custom global styles */
 html,
 body {
-  display: block;
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix potential conflicts between Tailwind and NG-ZORRO */
+.ant-btn {
+  /* Ensure NG-ZORRO buttons keep their styles */
+  font-family: inherit;
+}
+
+.ant-card {
+  /* Ensure NG-ZORRO cards keep their styles */
+  box-sizing: border-box;
 }

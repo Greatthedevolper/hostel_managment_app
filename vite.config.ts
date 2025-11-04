@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => ({
     analog(),
     tailwindcss()
   ],
+   css: {
+    postcss: './postcss.config.js'
+  },
   test: {
     globals: true,
     environment: 'jsdom',
