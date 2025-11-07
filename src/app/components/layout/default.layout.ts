@@ -43,7 +43,7 @@ import {
   template: `
     <nz-layout class="min-h-screen">
       <!-- Header -->
-      <nz-header class="bg-white shadow-sm border-b border-gray-200 px-6">
+      <nz-header class="bg-white shadow-sm border-b border-gray-200 px-2!">
         <div class="flex items-center justify-between h-full">
           <!-- Left Side: Toggle & Breadcrumb -->
           <div class="flex items-center space-x-4">
@@ -76,9 +76,9 @@ import {
               nz-button
               nzType="text"
               nzShape="circle"
-              class="text-gray-600 hover:text-blue-600"
+              class="text-white hover:text-blue-600"
             >
-              <span nz-icon nzType="bell"></span>
+              <span nz-icon nzType="bell" class="text-white! "></span>
             </button>
 
             <!-- User Dropdown -->
@@ -88,16 +88,16 @@ import {
               nzPlacement="bottomRight"
             >
               <div
-                class="flex items-center space-x-2 cursor-pointer hover:bg-gray-100 rounded-lg px-3 py-2"
+                class="flex items-center gap-2 cursor-pointer rounded-lg px-3 py-2 border hover:border-white"
               >
                 <nz-avatar
                   nzSrc="https://api.dicebear.com/7.x/avataaars/svg?seed=admin"
                   nzSize="small"
                 ></nz-avatar>
-                <span class="text-sm font-medium text-gray-700 hidden sm:block"
+                <span class="text-sm font-medium text-white hidden sm:block"
                   >Admin User</span
                 >
-                <span nz-icon nzType="down" class="text-gray-400"></span>
+                <span nz-icon nzType="down" class="text-white! "></span>
               </div>
             </div>
           </div>

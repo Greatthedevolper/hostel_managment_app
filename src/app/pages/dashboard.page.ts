@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { AnalogWelcome } from '../components/analog-welcome';
-
+import SidebarLayoutComponent from '../components/layout/default.layout';
 @Component({
   selector: 'app-dashboard-page',
   standalone: true,
-  imports: [AnalogWelcome],
+  imports: [AnalogWelcome,SidebarLayoutComponent],
   template: `
-    <div class="bg-red-900">
-      <h1>DASHBOARD PAGE IS WORKING!</h1>
-      <app-analog-welcome/>
-    </div>
+    <app-sidebar-layout ngSkipHydration>
+      <app-analog-welcome />
+    </app-sidebar-layout>
   `
 })
 export default class DashboardPage {}
+
