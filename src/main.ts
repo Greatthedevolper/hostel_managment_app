@@ -1,5 +1,6 @@
 import 'zone.js';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideNzIcons } from 'ng-zorro-antd/icon';
 import {
   UserOutline,
@@ -7,8 +8,11 @@ import {
   EditOutline,
   ShareAltOutline,
   MenuFoldOutline,
-  MenuUnfoldOutline
+  MenuUnfoldOutline,
 } from '@ant-design/icons-angular/icons';
+
+import { AppComponent } from './app/app';
+import { appConfig } from './app/app.config';
 
 const icons = [
   UserOutline,
@@ -16,12 +20,13 @@ const icons = [
   EditOutline,
   ShareAltOutline,
   MenuFoldOutline,
-  MenuUnfoldOutline
+  MenuUnfoldOutline,
 ];
 
-import { AppComponent } from './app/app';
-import { appConfig } from './app/app.config';
-
-bootstrapApplication(AppComponent, appConfig);
-
-
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideAnimations(), // ✅ use this
+    provideNzIcons(icons),
+    ...(appConfig.providers || []),
+  ],
+});

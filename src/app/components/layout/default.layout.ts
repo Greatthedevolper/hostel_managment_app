@@ -124,7 +124,7 @@ import {
       </nz-dropdown-menu>
 
       <!-- Content Area -->
-      <nz-content class=" bg-black h-[calc(100vh-64px)] flex! gap-2">
+      <nz-content class=" bg-black h-[calc(100vh-64px)] flex! overflow-hidden">
         <!-- Sidebar -->
         <nz-sider
           [(nzCollapsed)]="isCollapsed"
@@ -175,7 +175,7 @@ import {
             </li>
           </ul>
         </nz-sider>
-        <div class="bg-[#090707] min-h-full w-full">
+        <div class="bg-[#090707] min-h-full w-full p-2">
           <ng-content></ng-content>
         </div>
       </nz-content>

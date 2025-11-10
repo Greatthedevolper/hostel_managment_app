@@ -10,7 +10,6 @@ import {
 } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
 
-// Apollo imports
 import { InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { provideApollo } from 'apollo-angular';
@@ -24,15 +23,15 @@ export const appConfig: ApplicationConfig = {
     ),
     provideClientHydration(withEventReplay()),
 
-    // ✅ Correct usage for Apollo Angular 12+
     provideApollo(() => {
       const httpLink = inject(HttpLink);
 
       return {
-        cache: new InMemoryCache(),
+        cache: new InMemoryCache({}),
         link: httpLink.create({
           uri: 'https://localhost:7037/graphql/',
         }),
+        addTypename: false,
       };
     }),
   ],
